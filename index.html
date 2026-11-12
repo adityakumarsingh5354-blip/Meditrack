@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediTrack - Medicine Reminder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div>
+                <h1>💊 MediTrack</h1>
+                <p>Your Daily Medicine Companion</p>
+            </div>
+            <div class="date" id="todayDate"></div>
+        </header>
+
+        <!-- Dashboard Statistics -->
+        <section class="stats">
+            <div class="card">
+                <h3>Total Medicines</h3>
+                <h2 id="totalMedicines">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Doses Completed</h3>
+                <h2 id="completedDoses">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Remaining Tablets</h3>
+                <h2 id="totalStock">0</h2>
+            </div>
+        </section>
+
+        <!-- Daily Progress -->
+        <section class="panel">
+            <h2>Today's Medication Progress</h2>
+            <p id="progressText">0% Completed</p>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <p id="progressMessage">
+                Let's complete today's schedule!
+            </p>
+        </section>
+
+        <!-- Medicine Schedule -->
+        <section class="panel">
+            <h2>Today's Medicine Schedule</h2>
+
+            <button type="button" id="enableNotifications" class="notification-btn">
+                Enable Medicine Notifications
+            </button>
+
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="searchMedicine"
+                    placeholder="🔍 Search medicine by name..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <div id="medicineList"></div>
+        </section>
+
+        <!-- Add Medicine Form -->
+        <section class="panel">
+            <h2>Add New Medicine</h2>
+
+            <form id="medicineForm">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label for="medicineName">Medicine Name</label>
+                        <input
+                            type="text"
+                            id="medicineName"
+                            placeholder="e.g. Paracetamol"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="dosage">Dosage</label>
+                        <input
+                            type="text"
+                            id="dosage"
+                            placeholder="e.g. 500mg"
+                            required
+                        >
+                    </div>
+
+                    <!-- Dose Timings -->
+                    <div>
+                        <label>Timing (Select all that apply)</label>
+
+                        <div class="timing-options">
+
+                            <label>
+                                <input type="checkbox" name="timing" value="Morning">
+                                Morning
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="timing" value="Afternoon">
+                                Afternoon
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="timing" value="Night">
+                                Night
+                            </label>
+
+                        </div>
+
+                        <!-- Reminder Time Inputs Appear Here -->
+                        <div id="timingTimeFields" class="timing-time-fields"></div>
+                    </div>
+
+                    <div>
+                        <label for="meal">Meal Instruction</label>
+
+                        <select id="meal" required>
+                            <option value="Before Food">Before Food</option>
+                            <option value="After Food">After Food</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="stock">Number of Tablets</label>
+                        <input
+                            type="number"
+                            id="stock"
+                            min="1"
+                            placeholder="e.g. 20"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <button type="submit" class="add-btn">
+                    + Add Medicine
+                </button>
+
+            </form>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
